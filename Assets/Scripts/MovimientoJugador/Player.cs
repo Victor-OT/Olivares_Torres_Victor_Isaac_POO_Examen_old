@@ -12,6 +12,7 @@ ser ejecutados por el jugador en Pantalla.
 
 public class Player : MonoBehaviour
 {
+    //Se declara La clase donde se van a heredar los metodos para el movimiento del jugador
     BaseMovimiento movement;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Se inicializan los métodos del script de donde se hereda el movimiento
         movement.Movimiento();
         movement.Rotacion();
         movement.Salto();
