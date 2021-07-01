@@ -38,7 +38,10 @@ public class InterfacePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //Actualiza los datos asignados a la interfacce
+        vidaTMP.text = "VIDA: " + vidas.vidas;
+        scoreTMP.text = "SCORE: " + score.score.ToString();
+        coinsTMP.text = "COINS: " + coins.coins;
     }
 
     /*Metodo para crear una corrutina que asigne los valores correspondientes a sus textos

@@ -11,7 +11,7 @@ Descripción de lo que hace el script: Este Script contiene una variable tipo int
 
 public class ContadorVida : MonoBehaviour
 {
-    public int vidas;
+    public float vidas;
     // Start is called before the first frame update
     void Start()
     {
