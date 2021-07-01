@@ -25,11 +25,13 @@ public class Colision : MonoBehaviour
         
     }
 
+    /*este metodo registra la colision del jugador con el enemigo, además de
+     causar daño al jugador*/
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == "Player")
+        if(collision.gameObject.name == "Enemy2")
         {
-            collision.gameObject.GetComponent<DañoJugador>().Daño();
+            this.gameObject.GetComponent<DañoJugador>().Daño();
             Debug.Log("Me estás tocando");
         }
     }
