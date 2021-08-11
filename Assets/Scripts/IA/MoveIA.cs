@@ -20,20 +20,6 @@ public class MoveIA : MonoBehaviour
         Vector3 direccion = target.position - transform.position;
         Debug.Log(direccion.sqrMagnitude);
         transform.LookAt(target);
-        if (direccion.sqrMagnitude > distanciaExacta)
-        {
-            Move(direccion);
-            AnimacionBool("run", true);
-        }
-        else if (direccion.magnitude < distanciaExacta)
-        {
-            PlayAnimation("Quad Punch");
-        }
-        else
-        {
-
-            AnimacionBool("run", false);
-        }
     }
 
     public void Move(Vector3 direccion)
