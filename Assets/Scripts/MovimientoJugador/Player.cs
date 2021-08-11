@@ -31,35 +31,30 @@ public class Player : MonoBehaviour
         movement.Movimiento();
         //movement.Rotacion();
         movement.Salto();
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            indice = 1;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            indice = 2;
-        }
+        
 
         if (Input.GetMouseButtonDown(1))
         {
             indice = 0;
-            //if (standAttack == false)
-              //  standAttack = true;
-            //else
-                //standAttack = false;
         }
 
         if (Input.GetMouseButtonDown(0))
-            movement.Attack();
-        movement.StandingAttack(standAttack);
-        movement.Ataques(indice);
-
+        {
+            indice++;
+            if (indice > 3)
+            {
+                indice = 0;
+            }
+        }
         switch (indice)
         {
             case 1:
                 pistola.SetActive(true);
                 break;
             case 2:
+                pistola.SetActive(false);
+                break;
+            case 3:
                 pistola.SetActive(false);
                 break;
             default: pistola.SetActive(false);
