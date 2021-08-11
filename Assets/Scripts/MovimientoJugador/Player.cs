@@ -46,6 +46,9 @@ public class Player : MonoBehaviour
                 indice = 0;
             }
         }
+
+        movement.StandingAttack(standAttack);
+        movement.Ataques(indice);
         switch (indice)
         {
             case 1:
