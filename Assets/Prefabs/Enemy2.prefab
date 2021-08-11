@@ -1220,6 +1220,7 @@ GameObject:
   - component: {fileID: 733644079905661903}
   - component: {fileID: 6576654923553853411}
   - component: {fileID: 6576654923553853410}
+  - component: {fileID: 1475071089}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
@@ -1254,7 +1255,7 @@ Animator:
   m_GameObject: {fileID: 6306606416766821135}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 238ad3ae6ee7366489ce9c23cd8d0b45, type: 3}
-  m_Controller: {fileID: 9100000, guid: d1350476fe7e4c145bf4dc19037fbedd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 31d179280d0604b46ac24cbe7c641ed4, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1292,6 +1293,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.33, z: 1}
   m_Center: {x: 0, y: 1.15, z: 0}
+--- !u!114 &1475071089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6306606416766821135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3c7f8133cf6f4e4ca7bf6e79dbfde34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  velocidad: 8
+  animEnemigo: {fileID: 0}
 --- !u!1 &6340227062739112193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1827,6 +1843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7359249993278716987}
   - component: {fileID: 7943495845290030704}
+  - component: {fileID: 1321344153}
   m_Layer: 0
   m_Name: mremireh_body
   m_TagString: Untagged
@@ -1957,6 +1974,21 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0001437068, y: 0.04884869, z: 0.08553928}
     m_Extent: {x: 1.149334, y: 1.0902579, z: 0.34272385}
   m_DirtyAABB: 0
+--- !u!114 &1321344153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8042442202639918589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3c7f8133cf6f4e4ca7bf6e79dbfde34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  velocidad: 0
+  animEnemigo: {fileID: 0}
 --- !u!1 &8481352539560098950
 GameObject:
   m_ObjectHideFlags: 0
