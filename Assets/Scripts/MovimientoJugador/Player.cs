@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,12 +12,16 @@ ser ejecutados por el jugador en Pantalla.
 
 public class Player : MonoBehaviour
 {
+    public bool standAttack;
+    public int indice;
+    public GameObject pistola;
     //Se declara La clase donde se van a heredar los metodos para el movimiento del jugador
     BaseMovimiento movement;
     // Start is called before the first frame update
     void Start()
     {
         movement = GetComponent<BaseMovimiento>();
+        pistola.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,7 +29,42 @@ public class Player : MonoBehaviour
     {
         //Se inicializan los métodos del script de donde se hereda el movimiento
         movement.Movimiento();
-        movement.Rotacion();
+        //movement.Rotacion();
         movement.Salto();
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            indice = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            indice = 2;
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            indice = 0;
+            //if (standAttack == false)
+              //  standAttack = true;
+            //else
+                //standAttack = false;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+            movement.Attack();
+        movement.StandingAttack(standAttack);
+        movement.Ataques(indice);
+
+        switch (indice)
+        {
+            case 1:
+                pistola.SetActive(true);
+                break;
+            case 2:
+                pistola.SetActive(false);
+                break;
+            default: pistola.SetActive(false);
+                break;
+        }
+
     }
 }

@@ -17,6 +17,7 @@ public class BaseMovimiento : MonoBehaviour
     public float velocidadMovimiento;
     public float velocidadRotacion;
     private Vector3 direccion;
+    public bool standAttack;
 
     // Start is called before the first frame update
     private void Awake()
@@ -37,37 +38,56 @@ public class BaseMovimiento : MonoBehaviour
     public void Movimiento()
     {
         //Esta Linea nos sirve para registrar los datos de entrada de teclado
-        float movimientoHorizontal = Input.GetAxis("Vertical");
+        float movimientoVertical = Input.GetAxis("Vertical");
+        float movimientoHorizontal = Input.GetAxis("Horizontal");
 
         //Aqui se declara e inicializa un vector para utilizar en el traslado
-        direccion = new Vector3(0, 0, movimientoHorizontal);
+        direccion = new Vector3(movimientoHorizontal, 0, movimientoVertical);
 
         //se realiza la operación para generar el movimiento
-        direccion *= Time.deltaTime * velocidadMovimiento;
+        direccion *= Time.deltaTime;
+        direccion.Normalize();
 
         // Un bool que devuelve true or false dependiendo del valor en el eje Z del vector anteriormente declarado
-        bool moviendose = direccion.z != 0 ? true : false;
+        //bool moviendose = direccion.z != 0 ? true : false;
 
         //Se ejecuta la orden de trasladar al jugador
-        this.transform.Translate(direccion);
+        this.transform.Translate(direccion*velocidadMovimiento);
 
         //Cuando el bool anteriormente declarado retorna un valor true, se ejecuta animación de correr
-        animPlayer.SetBool("run", moviendose);
+        animPlayer.SetFloat("Speed", direccion.z);
+        animPlayer.SetFloat("SpeedLateral", direccion.x);
+        //animPlayer.SetBool("run", moviendose);
+    }
+
+    public void StandingAttack(bool a)
+    {
+        animPlayer.SetBool("StandAttack", a);
+    }
+
+    public void Attack()
+    {
+        animPlayer.SetTrigger("Attack");
+    }
+
+    public void Ataques(int i)
+    {
+        animPlayer.SetInteger("Ataques", i);
     }
 
     public void Rotacion()
     {
         //Esta Linea nos sirve para registrar los datos de entrada de teclado
-        float rotacionY = Input.GetAxis("Horizontal");
+        //float rotacionY = Input.GetAxis("Horizontal");
 
         //Aqui se declara e inicializa un vector para utilizar en la rotacion
-        Vector3 rotacion = new Vector3(0, rotacionY, 0);
+        //Vector3 rotacion = new Vector3(0, rotacionY, 0);
 
         //se realiza la operación para generar la rotacion
-        rotacion.y *= Time.deltaTime * velocidadRotacion;
+        //rotacion.y *= Time.deltaTime * velocidadRotacion;
 
         //Se ejecuta la orden de rotar al jugador
-        this.transform.Rotate(rotacion);
+        //this.transform.Rotate(rotacion);
     }
 
     public void Salto()
