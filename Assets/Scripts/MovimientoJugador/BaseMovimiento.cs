@@ -60,6 +60,14 @@ public class BaseMovimiento : MonoBehaviour
         //animPlayer.SetBool("run", moviendose);
     }
 
+    public void LookAtAim()
+    {
+        float h_Rotacion = Input.GetAxisRaw("Mouse X");
+        Vector3 rotacion_H = new Vector3(0, h_Rotacion, 0);
+        rotacion_H *= Time.deltaTime * velocidadRotacion;
+        this.transform.Rotate(rotacion_H);
+    }
+
     public void StandingAttack(bool a)
     {
         animPlayer.SetBool("StandAttack", a);
@@ -74,22 +82,7 @@ public class BaseMovimiento : MonoBehaviour
     {
         animPlayer.SetInteger("Ataques", i);
     }
-
-    public void Rotacion()
-    {
-        //Esta Linea nos sirve para registrar los datos de entrada de teclado
-        //float rotacionY = Input.GetAxis("Horizontal");
-
-        //Aqui se declara e inicializa un vector para utilizar en la rotacion
-        //Vector3 rotacion = new Vector3(0, rotacionY, 0);
-
-        //se realiza la operación para generar la rotacion
-        //rotacion.y *= Time.deltaTime * velocidadRotacion;
-
-        //Se ejecuta la orden de rotar al jugador
-        //this.transform.Rotate(rotacion);
-    }
-
+    
     public void Salto()
     {
         /*Se ejecuta animación de Salto al dar espacio como entrada de teclado, no requiere ningún valor pues la animación se encarga

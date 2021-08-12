@@ -2,8 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EstadosAI
+{
+    Idle,
+    Persecucion,
+    AtacaDistancia
+}
+
 public class MoveIA : MonoBehaviour
 {
+    public EstadosAI estadoActual;
+
     public Transform target;
     public float velocidad;
     public Animator animEnemigo;
@@ -17,9 +26,26 @@ public class MoveIA : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 direccion = target.position - transform.position;
-        Debug.Log(direccion.sqrMagnitude);
+        Vector3 direccion = target.position - transform.position;                                                   
+        //Debug.Log(direccion.sqrMagnitude);
         transform.LookAt(target);
+
+        switch (estadoActual)
+        {
+            case EstadosAI.Idle:
+                PlayAnimation("IBreathing Idle");
+                break;
+            case EstadosAI.Persecucion:
+                PlayAnimation("Run");
+                Move(direccion);
+                break;
+            case EstadosAI.AtacaDistancia:
+                PlayAnimation("Shooting");
+                break;
+            default:
+                break;
+
+        }
     }
 
     public void Move(Vector3 direccion)

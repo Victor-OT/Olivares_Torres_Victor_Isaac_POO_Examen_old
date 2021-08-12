@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     {
         //Se inicializan los métodos del script de donde se hereda el movimiento
         movement.Movimiento();
-        //movement.Rotacion();
+        movement.LookAtAim();
         movement.Salto();
         
 

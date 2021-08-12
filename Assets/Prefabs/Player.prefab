@@ -1009,7 +1009,7 @@ GameObject:
   - component: {fileID: 2373826677279925114}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2319,7 +2319,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c69080b6f223e9e49970a2aa27b07be0, type: 2}
+  - {fileID: 2100000, guid: 1050ed57c51fcad4a976e70cd56860d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
